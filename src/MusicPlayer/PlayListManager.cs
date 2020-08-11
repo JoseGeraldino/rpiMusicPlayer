@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -9,13 +10,13 @@ namespace MusicPlayer
 {
     internal class PlayListManager : IPlayListManager
     {
-        private static int songsplayed = 0;
-        private static readonly string[] validTypes = "mp3 ogg m4u wma wav".Split(' ');
-        private static readonly string directory = "/mnt/andoria/media/music";
+        private int songsplayed = 0;
+        private readonly string[] validTypes = "mp3 ogg m4u wma wav".Split(' ');
+        private readonly string directory = "/mnt/andoria/media/music";
         private Process _player;
-        public PlayListManager()
+        public PlayListManager(IConfiguration configuration)
         {
-
+            directory = configuration["Directory"];
         }
         private void BackgroundPlayer(List<string> files = null, string file = null)
         {
