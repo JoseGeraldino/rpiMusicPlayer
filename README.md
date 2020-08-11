@@ -1,6 +1,6 @@
 # Raspberry Pi Music Player
 
-This is a personal project to create a media player that randomly play all music files in a directory recursively.
+This is a personal project to create an extension to the omxplayer media player that randomly play all music files in a directory recursively.
 
 It's writen in .net core so it's not compatible with rpi zero.
 
